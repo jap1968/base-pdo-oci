@@ -12,3 +12,5 @@ Our base image is based on Ubuntu, but the driver files are distributed as `.rpm
 
     sudo alien oracle-instantclient18.5-basic-18.5.0.0.0-3.x86_64.rpm  
     sudo alien oracle-instantclient18.5-devel-18.5.0.0.0-3.x86_64.rpm
+
+The Dockerfile expects the Oracle files to be found here. We have included empty dummy files in this repository, but you should replace those by the right ones from the Oracle website.
