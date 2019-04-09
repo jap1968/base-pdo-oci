@@ -1,0 +1,7 @@
+files/oci8*
+files/php-7*
+files/oracle/*
+!files/oracle/README.md
+Dockerfile.bak
+package.xml
+README.prv.md
