@@ -8,9 +8,8 @@ Since we are working with a 64 bit Linux image, the files we need can be found h
 
 <https://www.oracle.com/technetwork/topics/linuxx86-64soft-092277.html>
 
-Our base image is based on Ubuntu, but the driver files are distributed as `.rpm` ones. The installation files have to be converted from `.rpm` to `.deb`. That can be done with the `alien` tool:
+According to the manufacturer, there are two versions of the driver:
+* Basic Package - All files required to run OCI, OCCI, and JDBC-OCI applications
+* Basic Light Package - Smaller version of the Basic package, with only English error messages and Unicode, ASCII, and Western European character set support
 
-    sudo alien oracle-instantclient18.5-basic-18.5.0.0.0-3.x86_64.rpm  
-    sudo alien oracle-instantclient18.5-devel-18.5.0.0.0-3.x86_64.rpm
-
-The Dockerfile expects the Oracle files to be found here. We have included empty dummy files in this repository, but you should replace those by the right ones from the Oracle website.
+Since we are working just with western European character sets, we have included the *lite* version
