@@ -11,7 +11,7 @@ If you want to generate the Docker image from the Dockerfile:
 $ docker build -t "base-pdo-oci" .
 ```
 
-If you prefer, you can load the image from DockerHub and then start the Apache web server:
+If you prefer, you can load the image from [DockerHub](https://hub.docker.com/r/jap1968/base-pdo-oci) and then start the Apache web server:
 
 ```sh
 $ docker run --rm -d -p 9099:80 jap1968/base-pdo-oci /usr/sbin/apache2ctl -D FOREGROUND
