@@ -1,5 +1,6 @@
 files/*
 !files/oracle/
+!files/apache2/
 Dockerfile.bak
 package.xml
 README.prv.md

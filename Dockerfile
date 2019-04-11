@@ -18,9 +18,7 @@ RUN apt update \
         php7.2-dev \
         libaio1 \
         gcc \
-        make \
-    && apt-get clean \
-    && apt-get autoremove
+        make
 
 # Get Oracle Instant Client drivers (v18.5) from:
 # https://www.oracle.com/technetwork/database/database-technologies/instant-client/overview/index.html
@@ -57,14 +55,16 @@ RUN curl -L http://php.net/get/php-7.2.15.tar.bz2/from/a/mirror \
     && echo extension=pdo_oci.so > /etc/php/7.2/mods-available/pdo_oci.ini \
     && phpenmod pdo_oci
 
-COPY docker/000-default.conf /etc/apache2/sites-available/000-default.conf
-COPY src /var/local/www/src
-COPY public /var/local/www/public
-RUN mkdir /var/local/www/logs \
-    && chmod 777 /var/local/www/logs
+COPY /files/apache2/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 WORKDIR /var/local/www/
-RUN echo "<?php phpinfo();" > /var/local/www/public/info.php
+RUN mkdir /var/local/www/public/ \
+    && echo "<?php phpinfo();" > /var/local/www/public/info.php
 RUN a2enmod rewrite
+
+# COPY src /var/local/www/src
+# COPY public /var/local/www/public
+# RUN mkdir /var/local/www/logs \
+#     && chmod 777 /var/local/www/logs
 
 # CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
