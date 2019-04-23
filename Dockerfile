@@ -8,14 +8,11 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
 RUN apt update \
     && apt install -y \
         unzip \
-        php-xml \
-        php-zip \
-        php-mbstring \
-        php-gd \
-        language-pack-es \
         apache2 \
         libapache2-mod-php \
-        php7.2-dev \
+        language-pack-es \
+        php-dev \
+        php-mbstring \
         libaio1 \
         gcc \
         make
